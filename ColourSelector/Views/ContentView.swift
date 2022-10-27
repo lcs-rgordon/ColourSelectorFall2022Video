@@ -42,11 +42,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            VStack {
-                
-            }
-            .frame(width: 200, height: 200)
-            .background(baseColour)
+            ColourSwatchView(colour: baseColour,
+                             size: 200)
             
             Text("Hue")
                 .bold()
@@ -64,23 +61,14 @@ struct ContentView: View {
             
             HStack(spacing: 0) {
                 
-                VStack {
-                    
-                }
-                .frame(width: 100, height: 100)
-                .background(baseColour)
+                ColourSwatchView(colour: baseColour,
+                                 size: 100)
 
-                VStack {
-                    
-                }
-                .frame(width: 100, height: 100)
-                .background(darkerColour)
-
-                VStack {
-                    
-                }
-                .frame(width: 100, height: 100)
-                .background(evenDarkerColour)
+                ColourSwatchView(colour: darkerColour,
+                                 size: 100)
+                
+                ColourSwatchView(colour: evenDarkerColour,
+                                 size: 100)
 
                 
             }
