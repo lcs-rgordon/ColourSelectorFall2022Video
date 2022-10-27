@@ -25,7 +25,19 @@ struct ContentView: View {
                      saturation: 0.8,
                      brightness: 0.9)
     }
-    
+
+    private var darkerColour: Color {
+        return Color(hue: hue,
+                     saturation: 0.8,
+                     brightness: 0.6)
+    }
+
+    private var evenDarkerColour: Color {
+        return Color(hue: hue,
+                     saturation: 0.8,
+                     brightness: 0.3)
+    }
+
     // Interface
     var body: some View {
         VStack {
@@ -47,7 +59,34 @@ struct ContentView: View {
                    minimumValueLabel: { Text("0") },
                    maximumValueLabel: { Text("360") })
             
+            Text("Monochromatic")
+                .bold()
+            
+            HStack(spacing: 0) {
+                
+                VStack {
+                    
+                }
+                .frame(width: 100, height: 100)
+                .background(baseColour)
+
+                VStack {
+                    
+                }
+                .frame(width: 100, height: 100)
+                .background(darkerColour)
+
+                VStack {
+                    
+                }
+                .frame(width: 100, height: 100)
+                .background(evenDarkerColour)
+
+                
+            }
+            
             Spacer()
+            
             
         }
         .padding()
