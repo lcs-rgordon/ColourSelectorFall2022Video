@@ -13,7 +13,8 @@ struct ContentView: View {
     @State private var selectedHue = 0.0
     
     // Our list of colour palettes that we like
-    @State private var savedPalettes: [SavedPalette] = [] // empty
+    // "Derived value"
+    @Binding var savedPalettes: [SavedPalette]
     
     // MARK: Computed properties
     
@@ -94,7 +95,23 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ContentView()
+        LiveContentView()
     }
+    
+    // Create a view to simulate the App Level Entry Point -> ContentView connection
+    struct LiveContentView: View {
+        
+        // Populate with some palettes to start...
+        @State var palettes: [SavedPalette] = examplePalettes
+        
+        var body: some View {
+            
+            ContentView(savedPalettes: $palettes)
+            
+        }
+    }
+    
+    
 }

@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct ColourSelectorApp: App {
+    
+    // MARK: Stored properties
+    
+    // Our list of saved palettes
+    // "Source of truth"
+    @State private var savedPalettes: [SavedPalette] = [] // empty
+    
+    // MARK: Computed properties
+    
+    // Windows / screens that make up our app
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(savedPalettes: $savedPalettes)
         }
     }
 }
